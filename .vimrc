@@ -9,7 +9,7 @@ set expandtab
 
 
 " save & compile
-autocmd filetype c nmap<F4> :w<CR>:!gcc % -o %:r <CR>
+autocmd filetype c nmap<F4> :wa<CR>:!gcc % -o %:r <CR>
 
 " save & compile & run
-autocmd filetype c nmap<F5> :w<CR>:!gcc % -o %:r<CR>:!./%:r<CR>
+autocmd filetype c nmap<F5> :wa<CR>:!gcc % -o %:r<CR>:!./%:r<CR>
