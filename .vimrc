@@ -8,8 +8,14 @@ set shiftwidth=4
 set expandtab
 
 
+" ====================== save/compile/run ==========================
 " save & compile
 autocmd filetype c nmap<F4> :wa<CR>:!gcc % -o %:r <CR>
 
 " save & compile & run
-autocmd filetype c nmap<F5> :wa<CR>:!gcc % -o %:r<CR>:!./%:r<CR>
+autocmd filetype c nmap<F5> :wa<CR>:!gcc % -o %:r<CR> :!./%:r<CR>
+
+" ====================== netrw =====================================
+" use Alt+V to open file in vertical split
+let g:netrw_altv=1
+
