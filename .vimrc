@@ -16,6 +16,6 @@ autocmd filetype c nmap<F4> :wa<CR>:!gcc % -o %:r <CR>
 autocmd filetype c nmap<F5> :wa<CR>:!gcc % -o %:r<CR> :!./%:r<CR>
 
 " ====================== netrw =====================================
-" use Alt+V to open file in vertical split
+" press v to open file in right vertical split
 let g:netrw_altv=1
 
