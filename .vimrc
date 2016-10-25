@@ -25,6 +25,9 @@ let g:netrw_banner=0
 " press p to open file in split, and keeps cursor in netrw
 let g:netrw_preview=1
 
+" when splitting netrw window set it to 25% of available space
+let g:netrw_winsize = 25
+
 " ====================== misc ======================================
 " change cwd automatically to the current buffer
 set autochdir
