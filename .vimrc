@@ -19,6 +19,12 @@ autocmd filetype c nmap<F5> :wa<CR>:!gcc % -o %:r<CR> :!./%:r<CR>
 " press v to open file in right vertical split
 let g:netrw_altv=1
 
+" hide netrw banner
+let g:netrw_banner=0
+
+" press p to open file in split, and keeps cursor in netrw
+let g:netrw_preview=1
+
 " ====================== misc ======================================
 " change cwd automatically to the current buffer
 set autochdir
