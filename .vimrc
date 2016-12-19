@@ -7,6 +7,7 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+set showcmd
 
 " ====================== save/compile/run ==========================
 " save & compile
@@ -26,8 +27,33 @@ let g:netrw_banner=0
 let g:netrw_preview=1
 
 " when splitting netrw window set it to 25% of available space
-let g:netrw_winsize = 25
+let g:netrw_winsize=25
+
+" cwd follows netrw cwd
+" let g:netrw_keepdir=0
+
+
+" ====================== status line ===============================
+set statusline+=%F
+
 
 " ====================== misc ======================================
 " change cwd automatically to the current buffer
 set autochdir
+
+let $BASH_ENV = "~/.bash_aliases"
+
+set shell=/bin/bash\ --rcfile\ ~/repos/dotfiles/.bashvimrc
+nnoremap <leader>s :shell <CR>
+nnoremap <leader>d :!svn_meld %:p <CR><CR>
+nnoremap <leader>c :make! -j 7 <CR>
+set mouse=n
+" autocmd VimLeave * :!source ~/.bash_rc
+
+
+" ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .  
+set path=.,/home/neatuo/WORK/Tools/Sources/**
+set tags=tags;/home/neatuo/WORK/Tools/Sources
+
+set clipboard=unnamedplus
+
