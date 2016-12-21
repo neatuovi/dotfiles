@@ -53,7 +53,7 @@ set mouse=n
 
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .  
 set path=.,/home/neatuo/WORK/Tools/Sources/**
-set tags=tags=./tags;/
+set tags=tags;/
 
 set clipboard=unnamedplus
 
