@@ -26,7 +26,7 @@ let g:netrw_banner=0
 " press p to open file in split, and keeps cursor in netrw
 let g:netrw_preview=1
 
-" when splitting netrw window set it to 25% of available space
+" when splitting netrw window set it to 25% of available space - this has some bugs
 let g:netrw_winsize=25
 
 " cwd follows netrw cwd
@@ -53,7 +53,7 @@ set mouse=n
 
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .  
 set path=.,/home/neatuo/WORK/Tools/Sources/**
-set tags=tags;/home/neatuo/WORK/Tools/Sources
+set tags=tags=./tags;/
 
 set clipboard=unnamedplus
 
