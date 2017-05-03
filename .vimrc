@@ -26,15 +26,19 @@ let g:netrw_banner=0
 " press p to open file in split, and keeps cursor in netrw
 let g:netrw_preview=1
 
-" when splitting netrw window set it to 25% of available space - this has some bugs
-let g:netrw_winsize=25
+" when splitting netrw window set it to 20% of available space - this has some bugs
+let g:netrw_winsize=20
 
 " cwd follows netrw cwd
 " let g:netrw_keepdir=0
 
 
 " ====================== status line ===============================
-set statusline+=%F
+" %F - full path
+" %l - current line
+" %L - number of lines
+" note: space must be escaped
+set statusline=%F\ \ %l\ /\ %L
 
 
 " ====================== misc ======================================
@@ -44,16 +48,25 @@ set autochdir
 let $BASH_ENV = "~/.bash_aliases"
 
 set shell=/bin/bash\ --rcfile\ ~/repos/dotfiles/.bashvimrc
-nnoremap <leader>s :shell <CR>
+nnoremap <leader>w :shell <CR>
+nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h<CR><CR>
 nnoremap <leader>d :!svn_meld %:p <CR><CR>
+nnoremap <leader>g :!git difftool -t=meld %:p <CR><CR>
 nnoremap <leader>c :make! -j 7 <CR>
 set mouse=n
 " autocmd VimLeave * :!source ~/.bash_rc
 
+autocmd BufRead,BufNewFile *.c,*.cpp nnoremap <buffer> <F4> :find %:r.h <CR>
+autocmd BufRead,BufNew *.h nnoremap <buffer> <F4> :find %:r.cpp <CR>
+autocmd BufRead,BufNew *.h nnoremap <buffer> <F3> :find %:r.c <CR>
 
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .  
-set path=.,/home/neatuo/WORK/Tools/Sources/**
+set path=.,**;/home/oneatu/WORK/Tools/Sources
 set tags=tags;/
+set complete=.,w,b,u,t
 
 set clipboard=unnamedplus
+
+" ================== bookmarks ======================================
+nnoremap <leader>h :e ~/WORK/bookmarks <CR>
 
