@@ -9,6 +9,9 @@ set expandtab
 
 set showcmd
 
+set ignorecase
+set smartcase
+
 " ====================== save/compile/run ==========================
 " save & compile
 autocmd filetype c nmap<F4> :wa<CR>:!gcc % -o %:r <CR>
