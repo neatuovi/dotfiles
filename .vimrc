@@ -11,7 +11,12 @@ set showcmd
 
 set ignorecase
 set smartcase
+set incsearch
 
+set wildmode=list:longest,full
+
+" allow jumping from closing opening tag to closing tag using %
+runtime macros/matchit.vim
 " ====================== save/compile/run ==========================
 " save & compile
 autocmd filetype c nmap<F4> :wa<CR>:!gcc % -o %:r <CR>
@@ -54,7 +59,7 @@ set shell=/bin/bash\ --rcfile\ ~/repos/dotfiles/.bashvimrc
 nnoremap <leader>w :shell <CR>
 nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h<CR><CR>
 nnoremap <leader>d :!svn_meld %:p <CR><CR>
-nnoremap <leader>g :!git difftool -t=meld %:p <CR><CR>
+nnoremap <leader>g :!git difftool -t meld %:p <CR><CR>
 nnoremap <leader>c :make! -j 7 <CR>
 set mouse=n
 " autocmd VimLeave * :!source ~/.bash_rc
@@ -63,8 +68,8 @@ autocmd BufRead,BufNewFile *.c,*.cpp nnoremap <buffer> <F4> :find %:r.h <CR>
 autocmd BufRead,BufNew *.h nnoremap <buffer> <F4> :find %:r.cpp <CR>
 autocmd BufRead,BufNew *.h nnoremap <buffer> <F3> :find %:r.c <CR>
 
-" ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .  
-set path=.,**;/home/oneatu/WORK/Tools/Sources
+" ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .
+set path=.,**
 set tags=tags;/
 set complete=.,w,b,u,t
 
@@ -73,3 +78,8 @@ set clipboard=unnamedplus
 " ================== bookmarks ======================================
 nnoremap <leader>h :e ~/WORK/bookmarks <CR>
 
+" ================== Custom Highlights ======================================
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+set matchpairs+=<:>,=:;
